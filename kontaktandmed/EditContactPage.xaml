@@ -1,0 +1,25 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="kontaktandmed.EditContactPage">
+
+    <StackLayout Padding="20">
+        <Label Text="Nimi" />
+        <Entry x:Name="nameEntry" Placeholder="Sisesta nimi" Text="{Binding Name}" />
+
+        <Label Text="Telefon" />
+        <Entry x:Name="phoneEntry" Placeholder="Sisesta telefon" Text="{Binding Phone}" Keyboard="Telephone" />
+
+        <Label Text="Email" />
+        <Entry x:Name="emailEntry" Placeholder="Sisesta email" Text="{Binding Email}" Keyboard="Email" />
+
+        <Label Text="Kirjeldus" />
+        <Editor x:Name="descriptionEditor" Placeholder="Sisesta kirjeldus" Text="{Binding Description}" />
+
+        <Label Text="Foto" />
+        <Image x:Name="contactPhoto" Source="{Binding Photo}" HeightRequest="100" WidthRequest="100"/>
+        <Button Text="Lisa foto" Clicked="OnAddPhotoClicked"/>
+
+        <Button Text="Salvesta" Clicked="OnSaveClicked"/>
+    </StackLayout>
+
+</ContentPage>
