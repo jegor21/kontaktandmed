@@ -8,7 +8,7 @@
         <ToolbarItem Text="Lisa kontakt" Clicked="OnAddContactClicked"/>
     </ContentPage.ToolbarItems>
 
-    <TableView Intent="Form" x:Name="contactsTableView">
+    <TableView Intent="Form" x:Name="contactsTableView" HasUnevenRows="True">
         <TableRoot>
             <TableSection Title="Kontaktid" x:Name="contactsTableSection">
                 <!-- Контакты будут добавляться сюда -->
