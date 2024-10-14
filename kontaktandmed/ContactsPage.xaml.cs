@@ -25,18 +25,18 @@ namespace kontaktandmed
                     Padding = new Thickness(10),
                     RowDefinitions =
             {
-                new RowDefinition { Height = GridLength.Auto }, // Для имени
-                new RowDefinition { Height = GridLength.Auto }, // Для телефона
-                new RowDefinition { Height = GridLength.Auto }, // Для email
-                new RowDefinition { Height = GridLength.Auto }  // Для описания
+                new RowDefinition { Height = GridLength.Auto }, 
+                new RowDefinition { Height = GridLength.Auto }, 
+                new RowDefinition { Height = GridLength.Auto }, 
+                new RowDefinition { Height = GridLength.Auto }  
             },
                     ColumnDefinitions =
             {
-                new ColumnDefinition { Width = GridLength.Star } // Один столбец на всю ширину
+                new ColumnDefinition { Width = GridLength.Star } 
             }
                 };
 
-                // Создаем элементы для отображения данных контакта
+                
                 var nameLabel = new Label
                 {
                     Text = contact.Name,
@@ -67,38 +67,30 @@ namespace kontaktandmed
                     LineBreakMode = LineBreakMode.WordWrap
                 };
 
-                // Добавляем элементы в Grid
-                grid.Children.Add(nameLabel);         // Добавляем элемент в Grid
-                Grid.SetRow(nameLabel, 0);            // Указываем, что nameLabel в 1-й строке
+                
+                grid.Children.Add(nameLabel);         
+                Grid.SetRow(nameLabel, 0);            
 
-                grid.Children.Add(phoneLabel);        // Добавляем элемент в Grid
-                Grid.SetRow(phoneLabel, 1);           // Указываем, что phoneLabel во 2-й строке
+                grid.Children.Add(phoneLabel);        
+                Grid.SetRow(phoneLabel, 1);           
 
-                grid.Children.Add(emailLabel);        // Добавляем элемент в Grid
-                Grid.SetRow(emailLabel, 2);           // Указываем, что emailLabel в 3-й строке
+                grid.Children.Add(emailLabel);        
+                Grid.SetRow(emailLabel, 2);           
 
-                grid.Children.Add(descriptionLabel);  // Добавляем элемент в Grid
-                Grid.SetRow(descriptionLabel, 3);     // Указываем, что descriptionLabel в 4-й строке
+                grid.Children.Add(descriptionLabel);  
+                Grid.SetRow(descriptionLabel, 3);     
 
                 viewCell.View = grid;
 
-                // Добавляем возможность редактирования контакта по нажатию
                 viewCell.Tapped += async (sender, e) =>
                 {
                     await Navigation.PushAsync(new EditContactPage(contact, Contacts));
                 };
-
-                // Добавляем ячейку в секцию
+                
                 contactsTableSection.Add(viewCell);
             }
         }
-
-
-
-
-
-
-        // Обработчик добавления нового контакта
+        
         private async void OnAddContactClicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new EditContactPage(null, Contacts));

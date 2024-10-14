@@ -1,6 +1,8 @@
 ﻿using System.ComponentModel;
 
 public class Contact : INotifyPropertyChanged
+//https://docs.avaloniaui.net/ru/docs/guides/data-binding/inotifypropertychanged
+//https://learn.microsoft.com/en-us/dotnet/api/system.componentmodel.inotifypropertychanged?view=net-8.0
 {
     private string _name;
     private string _phone;

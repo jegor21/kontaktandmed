@@ -20,28 +20,28 @@ namespace kontaktandmed
             if (contact == null)
             {
                 _contact = new Contact();
-                _isNewContact = true;  // Это новый контакт
+                _isNewContact = true;  
             }
             else
             {
                 _contact = contact;
-                _isNewContact = false; // Мы редактируем существующий контакт
+                _isNewContact = false; 
             }
 
             BindingContext = _contact;
         }
 
-        // Сохранение контакта
+        
         private async void OnSaveClicked(object sender, EventArgs e)
         {
             if (_isNewContact)
             {
-                // Добавляем новый контакт в коллекцию
+                
                 _contacts.Add(_contact);
             }
             else
             {
-                // Обновляем данные в Picker, уведомляя об изменении имени контакта
+                
                 var index = _contacts.IndexOf(_contact);
                 if (index >= 0)
                 {
@@ -49,28 +49,28 @@ namespace kontaktandmed
                 }
             }
 
-            // Возвращаемся на предыдущую страницу
+            
             await Navigation.PopAsync();
         }
 
 
-        // Добавление фотографии контакта
+       
         private async void OnAddPhotoClicked(object sender, EventArgs e)
         {
             try
             {
-                // Логика для выбора фото (используй MediaPicker или другой механизм)
+                
                 var result = await MediaPicker.PickPhotoAsync();
 
                 if (result != null)
                 {
                     _contact.Photo = result.FullPath;
-                    contactPhoto.Source = _contact.Photo; // Обновляем изображение
+                    contactPhoto.Source = _contact.Photo; 
                 }
             }
             catch (Exception ex)
             {
-                await DisplayAlert("Ошибка", "Не удалось выбрать фото: " + ex.Message, "OK");
+                await DisplayAlert("Viga", "Pole foto: " + ex.Message, "OK");
             }
         }
     }

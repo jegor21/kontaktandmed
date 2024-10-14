@@ -4,14 +4,14 @@
              Title="Kontakti valik">
 
     <StackLayout Padding="20">
-        <!-- Существующий дропдаун и кнопки -->
+        
         <Picker x:Name="contactPicker" Title="Vali kontakt" ItemsSource="{Binding Contacts}" ItemDisplayBinding="{Binding Name}"/>
 
         <Button Text="Helista" Clicked="OnCallClicked"/>
         <Button Text="Saada SMS" Clicked="OnSmsClicked"/>
         <Button Text="Saada Email" Clicked="OnEmailClicked"/>
 
-        <!-- Новая кнопка для перехода в список контактов -->
+        
         <Button Text="Vaata kontaktide nimekirja" Clicked="OnViewContactsClicked"/>
     </StackLayout>
 
